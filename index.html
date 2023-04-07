@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Sudoku</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <h1>Sudoku</h1>
     <table id="tableTwo">
@@ -283,7 +285,7 @@
         [7, "", 1, 3, "", 8, "", "", 2],
         ["", 7, "", 6, 1, "", 2, "", 4],
         ["", "", "", "", "", "", "", "", ""],
-        ["", "", "",5, "", "", "", "", 9]
+        ["", "", "", 5, "", "", "", "", 9]
     ];
 
     // let solution = [
@@ -328,6 +330,48 @@
         console.log(data);
     }
 
-    populateSudoku(data)
+    populateSudoku(data);
+
+    let isValidSudoku = (data) => {
+        for (let i = 0; i < 9; i++) {
+            let row = new Set(),
+                col = new Set(),
+                box = new Set();
+
+            for (let j = 0; j < 9; j++) {
+                let _row = data[i][j];
+                let _col = data[j][i];
+                let _box = data[3 * Math.floor(i / 3) + Math.floor(j / 3)][3 * (i % 3) + (j % 3)]
+
+                if (_row != "") {
+                    if (row.has(_row)) {
+                        // console.log(`Duplicate ${_row} found in row ${i}`);
+                        return false;
+                    }
+                    row.add(_row);
+                }
+                if (_col != "") {
+                    if (col.has(_col)) {
+                        // console.log(`Duplicate ${_col} found in column ${i}`);
+                        return false;
+                    }
+                    col.add(_col);
+                }
+
+                if (_box != "") {
+                    if (box.has(_box)) {
+                        // console.log(`Duplicate ${_box} found in box (${Math.floor(i / 3)}, ${j % 3})`);
+                        return false;
+                    }
+                    box.add(_box);
+
+                }
+            }
+        }
+        return true
+    };
+
+    console.log(isValidSudoku(data));
 </script>
+
 </html>
