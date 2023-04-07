@@ -274,6 +274,7 @@
             </td>
         </tr>
     </table>
+    <button id="checkVal">Validation</button>
 </body>
 <script>
     let data = [
@@ -371,6 +372,29 @@
         return true
     };
     console.log(isValidSudoku(data));
+
+    let checkBtn = document.getElementById("checkVal");
+    checkBtn.addEventListener("click", checkSudoku);
+
+    function checkSudoku() {
+    for (let i = 0; i < table.rows.length; i++) {
+        let row = table.rows[i];
+        for (let j = 0; j < row.cells.length; j++) {
+        let cell = row.cells[j];
+        let input = cell.children;
+        if (input[0].value == "") {
+            alert("You need to fill all the fields");
+            return; 
+        }
+        }
+    }
+    let isSudokuValid = isValidSudoku(data);
+    if (isSudokuValid) {
+        alert("You won!");
+    }else{
+        alert("You lost!");
+    }
+    }
 </script>
 
 </html>
