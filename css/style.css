@@ -44,7 +44,29 @@ input{
   border-right: 1px solid black;
 }
 
+section {
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+}
 
+#checkVal {
+  padding: 10px;
+  margin-top: 2vh;
+  font-weight: 600;
+}
+
+#resetBtn {
+  padding: 10px;
+  margin-top: 2vh;
+  font-weight: 600;
+}
+
+#newGame {
+  padding: 10px;
+  margin-top: 2vh;
+  font-weight: 600;
+}
 
 
 
