@@ -20,8 +20,7 @@ table{
   width: 540px;
   height: 540px;
   background-color: aliceblue;
-  border: none;
-
+  border-collapse: collapse;
 }
 
 input{
@@ -69,5 +68,20 @@ section {
   font-weight: 600;
 }
 
+.sudokuTr:nth-child(3n + 1){
+  border-top: 2px solid black;
+}
+
+.sudokuTr:nth-child(3n){
+  border-bottom: 2px solid black;
+}
+
+td:nth-child(3n + 1){
+  border-left: 2px solid black;
+}
+
+td:nth-child(3n){
+  border-right: 2px solid black;
+}
 
 
