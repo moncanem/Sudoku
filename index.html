@@ -388,15 +388,15 @@
         let input = cell.children;
         if (input[0].value == "") {
             alert("You need to fill all the fields");
-            return; 
+            return;
         }
         }
     }
     let isSudokuValid = isValidSudoku(data);
     if (isSudokuValid) {
-        alert("You won!");
+        alert("Congrats, no mistakes found!");
     }else{
-        alert("You lost!");
+        alert("Looks like there's a mistake, try again.");
     }
     }
 </script>
