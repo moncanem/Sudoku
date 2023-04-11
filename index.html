@@ -400,6 +400,18 @@
         alert("Looks like there's a mistake, try again.");
     }
     }
+
+    let resetButton = document.getElementById("resetBtn");
+    resetButton.addEventListener("click", resetSudoku);
+
+    function resetSudoku(){
+        let inputs = document.querySelectorAll('#tableTwo input[type="number"]');
+        inputs.forEach(input => {
+            if (!input.disabled) {
+                input.value = '';
+            }
+        });
+    }
 </script>
 
 </html>
