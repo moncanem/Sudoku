@@ -67,6 +67,12 @@ section {
   font-weight: 600;
 }
 
+#solution {
+  padding: 10px;
+  margin-top: 2vh;
+  font-weight: 600;
+}
+
 .sudokuTr:nth-child(3n + 1){
   border-top: 2px solid black;
 }
