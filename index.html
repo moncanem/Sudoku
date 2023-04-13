@@ -277,7 +277,6 @@
     <section>
         <button id="checkVal">Validate</button>
         <button id="resetBtn">Reset</button>
-        <button id="newGame" onclick="newGame(newData)">New game</button>
         <button id="solution" onclick="solveSudoku(solution)">Solve</button>
     </section>
 </body>
@@ -288,18 +287,6 @@
         [4, "", "", "", 7, "", "", 9, ""],
         ["", 4, "", 7, "", "", "", 6, ""],
         ["", 3, "", "", 2, "", 9, 7, ""],
-        [7, "", 1, 3, "", 8, "", "", 2],
-        ["", 7, "", 6, 1, "", 2, "", 4],
-        ["", "", "", "", "", "", "", "", ""],
-        ["", "", "", 5, "", "", "", "", 9]
-    ];
-
-    let newData = [
-        ["", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", "", ""],
-        ["", 4, "", 7, "", "", "", 6, ""],
-        ["", 3, "", "", "", "", 9, 7, ""],
         [7, "", 1, 3, "", 8, "", "", 2],
         ["", 7, "", 6, 1, "", 2, "", 4],
         ["", "", "", "", "", "", "", "", ""],
@@ -330,7 +317,7 @@
     }
 
     // console.log(table.rows);
-    function populateSudoku(n) {
+    let populateSudoku = (n) => {
         for (let i = 0; i < table.rows.length; i++) {
             // Create a row element
             let row = table.rows[i];
@@ -347,26 +334,12 @@
         }
     }
 
-    let newGame = (game) => {
-        for (let i = 0; i < table.rows.length; i++) {
-            // Create a row element
-            let row = table.rows[i];
-            //   console.log(row);
-            for (let j = 0; j < row.cells.length; j++) {
-                let cell = row.cells[j];
-                let input = cell.children;
-                input[0].value = game[i][j];
-                // console.log(input[0]);
-                if (game[i][j] != "") {
-                    input[0].disabled = true;
-                }else{
-                  input[0].disabled = false;
-                }
-            }
-        }
-        newData = game;
+    let updateData = (number) => {
+        let columnIndex = number.target.parentElement.cellIndex;
+        let rowIndex = number.target.parentElement.parentElement.rowIndex;
+        data[rowIndex][columnIndex] = parseInt(number.target.value);
+        // console.log(data);
     }
-
 
     let solveSudoku = (solve) => {
         for (let i = 0; i < table.rows.length; i++) {
@@ -382,16 +355,10 @@
         data = solve;
     }
 
+
     let inputs = document.querySelectorAll("input");
     for (let input of inputs) {
         input.addEventListener("input", updateData);
-    }
-
-    function updateData(number) {
-        let columnIndex = number.target.parentElement.cellIndex;
-        let rowIndex = number.target.parentElement.parentElement.rowIndex;
-        data[rowIndex][columnIndex] = parseInt(number.target.value);
-        // console.log(data);
     }
 
     populateSudoku(data);
@@ -519,13 +486,13 @@
     let resetButton = document.getElementById("resetBtn");
     resetButton.addEventListener("click", resetSudoku);
 
-    function resetSudoku(){
+    function resetSudoku() {
         let inputs = document.querySelectorAll('#tableTwo input[type="number"]');
-        inputs.forEach(input => {
+        for(let input of inputs){
             if (!input.disabled) {
                 input.value = '';
             }
-        });
+        }
     }
 </script>
 
