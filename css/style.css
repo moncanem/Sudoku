@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 }
-body{
+/* body{
   padding: 5%;
   text-align: center;
   display: flex;
@@ -30,13 +30,13 @@ input{
   font-size: 20px;
   font-weight: 600;
   text-align: center;
-}
+} */
 
 /* .tile-Selected {
   background-color: gainsboro;
 } */
 
-.horizontal-line {
+/* .horizontal-line {
   border-bottom: 1px solid black;
 }
 .vertical-line {
@@ -81,6 +81,76 @@ td:nth-child(3n + 1){
 
 td:nth-child(3n){
   border-right: 2px solid black;
+} */
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
 }
 
+h1 {
+  text-align: center;
+  color: #333;
+}
 
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+input[type="number"] {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.sudokuTr:nth-child(3n + 1){
+  border-top: 2px solid black;
+}
+
+.sudokuTr:nth-child(3n){
+  border-bottom: 2px solid black;
+}
+
+td:nth-child(3n + 1){
+  border-left: 2px solid black;
+}
+
+td:nth-child(3n){
+  border-right: 2px solid black;
+}
